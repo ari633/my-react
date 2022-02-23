@@ -12,9 +12,10 @@ export const api = createApi({
           pageSize,
           gender,
           sortBy,
-          sortOrder
+          sortOrder,
+          keyword
         } = params
-        return `?results=${results}&page=${page}&pageSize=${pageSize}&gender=${gender}&sortBy=${sortBy}&sortOrder=${sortOrder}`
+        return `?results=${results}&page=${page}&pageSize=${pageSize}&gender=${gender}&sortBy=${sortBy}&sortOrder=${sortOrder}&keyword=${keyword}`
       }
     })
   })
