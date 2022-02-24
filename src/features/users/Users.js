@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { Table, Input, Divider, Space, Select, Button } from 'antd'
+import { Table, Divider } from 'antd'
 import { useGetUsersQuery } from '../../services/users'
+import FilterForm from './FilterForm'
 
 const columns = [
   {
@@ -28,9 +29,6 @@ const columns = [
 ]
 
 const Users = () => {
-  const { Search } = Input
-  const { Option } = Select
-
   const initQuery = {
     page: 1,
     results: 10,
@@ -90,15 +88,15 @@ const Users = () => {
 
   return (
     <div>
-      <Space>
-        <Search placeholder="Search..." name='keyword' value={forms.keyword} loading={isLoading} enterButton onSearch={onSearch} onChange={inputOnChange} />
-        <Select defaultValue={query.gender} style={{ width: 120 }} onSelect={onSearchGender}>
-          <Option value="">All</Option>
-          <Option value="female">Female</Option>
-          <Option value="male">Male</Option>
-        </Select>
-        <Button onClick={onReset}>Reset Filter</Button>
-      </Space>
+      <FilterForm
+        forms={ forms }
+        query={ query }
+        isLoading={ isLoading }
+        onSearch={ onSearch }
+        inputOnChange={ inputOnChange }
+        onSearchGender={ onSearchGender }
+        onReset={ onReset }
+      />
       <Divider />
       <Table
         columns={columns}
