@@ -1,0 +1,22 @@
+{
+  "hosting": {
+    "site": "arireact",
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "README.md",
+      "package.json",
+      "package-lock.json",
+      "**/.*",
+      "**/node_modules/**",
+      "**/coverage/**",
+      "**/public/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
